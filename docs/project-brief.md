@@ -55,12 +55,11 @@ Evaluate on 20 permitted papers spanning relevant methods. Publish the evaluatio
 - Local Git author name: `profOpe`.
 - Commit email is configured locally from the linked GitHub profile.
 - The local repository uses `main`.
-- Selected GitHub repository: [opeimpact/responsible-AI](https://github.com/opeimpact/responsible-AI).
-- The selected GitHub repository is public. Evidence Table is the initial project hosted there.
+- Selected GitHub repository: [opeimpact/evidence-table](https://github.com/opeimpact/evidence-table).
+- The GitHub repository is public and dedicated to Evidence Table. It was renamed from `responsible-AI`, preserving its history.
 
 ## Decisions still needed
 
-- Confirm the working name before public release.
 - Development Mac chip and memory, then a suitable local model.
 - One real research question and a small set of papers for the first pilot.
 
