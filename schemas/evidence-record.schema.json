@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Table record",
+  "description": "Draft single-paper extraction contract. Proposed values remain distinct from later researcher review.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "document", "generation", "fields"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "file_name", "source_type"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "file_name": {"type": "string", "minLength": 1},
+        "source_type": {"enum": ["pdf", "synthetic_text"]},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "model_id", "runtime", "prompt_version"],
+      "properties": {
+        "kind": {"enum": ["local_model", "manual_example"]},
+        "model_id": {"type": ["string", "null"]},
+        "runtime": {"type": ["string", "null"]},
+        "prompt_version": {"type": ["string", "null"]},
+        "settings": {"type": "object"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "local_model"}}},
+          "then": {
+            "properties": {
+              "model_id": {"type": "string", "minLength": 1},
+              "runtime": {"type": "string", "minLength": 1},
+              "prompt_version": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      ]
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["research_question", "method", "sample", "findings", "limitations"],
+      "properties": {
+        "research_question": {"$ref": "#/$defs/field"},
+        "method": {"$ref": "#/$defs/field"},
+        "sample": {"$ref": "#/$defs/field"},
+        "findings": {"$ref": "#/$defs/field"},
+        "limitations": {"$ref": "#/$defs/field"}
+      }
+    }
+  },
+  "$defs": {
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proposed_value", "evidence", "review"],
+      "properties": {
+        "proposed_value": {"type": ["string", "null"], "minLength": 1},
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["pdf_page", "quote"],
+            "properties": {
+              "pdf_page": {"type": "integer", "minimum": 1},
+              "quote": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reviewed_value", "note"],
+          "properties": {
+            "status": {"enum": ["unreviewed", "accepted", "edited", "rejected"]},
+            "reviewed_value": {"type": ["string", "null"]},
+            "note": {"type": ["string", "null"]}
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"proposed_value": {"type": "string"}}},
+          "then": {"properties": {"evidence": {"minItems": 1}}},
+          "else": {"properties": {"evidence": {"maxItems": 0}}}
+        }
+      ]
+    }
+  }
+}

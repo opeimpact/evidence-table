@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "document": {
+    "id": "synthetic-paper-001",
+    "file_name": "synthetic-paper.txt",
+    "source_type": "synthetic_text"
+  },
+  "generation": {
+    "kind": "manual_example",
+    "model_id": null,
+    "runtime": null,
+    "prompt_version": null
+  },
+  "fields": {
+    "research_question": {
+      "proposed_value": "How participants used supporting passages when reviewing assistant suggestions.",
+      "evidence": [{"pdf_page": 1, "quote": "We asked how participants used supporting passages when reviewing an assistant's suggestions."}],
+      "review": {"status": "unreviewed", "reviewed_value": null, "note": null}
+    },
+    "method": {
+      "proposed_value": "Semi-structured interviews following a reading task.",
+      "evidence": [{"pdf_page": 1, "quote": "We conducted semi-structured interviews after a reading task."}],
+      "review": {"status": "unreviewed", "reviewed_value": null, "note": null}
+    },
+    "sample": {
+      "proposed_value": "12 adult volunteers.",
+      "evidence": [{"pdf_page": 1, "quote": "The study included 12 adult volunteers."}],
+      "review": {"status": "unreviewed", "reviewed_value": null, "note": null}
+    },
+    "findings": {
+      "proposed_value": "Eight participants reported checking supporting passages before accepting suggestions.",
+      "evidence": [{"pdf_page": 2, "quote": "Eight participants said they checked supporting passages before accepting suggestions."}],
+      "review": {"status": "unreviewed", "reviewed_value": null, "note": null}
+    },
+    "limitations": {
+      "proposed_value": "Recruitment from one institution limits transferability.",
+      "evidence": [{"pdf_page": 2, "quote": "The sample came from one institution, which limits transferability."}],
+      "review": {"status": "unreviewed", "reviewed_value": null, "note": null}
+    }
+  }
+}

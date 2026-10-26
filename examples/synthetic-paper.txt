@@ -1,0 +1,12 @@
+FICTIONAL FORMAT EXAMPLE. This is not a published research paper.
+The page markers below stand in for PDF page positions for this example only.
+
+[PDF page 1]
+Title: Reviewing Suggestions in a Fictional Reading Assistant
+We asked how participants used supporting passages when reviewing an assistant's suggestions.
+We conducted semi-structured interviews after a reading task.
+The study included 12 adult volunteers.
+
+[PDF page 2]
+Eight participants said they checked supporting passages before accepting suggestions.
+The sample came from one institution, which limits transferability.
